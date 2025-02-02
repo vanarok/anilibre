@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import { mdiChat, mdiGithub } from '@mdi/js';
+
 const items = shallowRef([
   {
     title: 'Anilibre GitHub',
-    icon: `mdi-github`,
+    icon: mdiGithub,
     href: 'https://github.com/vanarok/anilibre',
   },
   {
     title: 'Anilibre Telegram',
-    icon: `mdi-chat`,
+    icon: mdiChat,
     href: 'https://t.me/vanarok',
   }
 ])
@@ -34,7 +36,7 @@ const items = shallowRef([
       class="text-caption text-disabled"
       style="position: absolute; right: 16px;"
     >
-      &copy; 2016-{{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">created by <a href="https://t.me/vanarok">vanarok</a></span>
+      &copy; {{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">created by <a href="https://t.me/vanarok">vanarok</a></span>
     </div>
   </v-footer>
 </template>
