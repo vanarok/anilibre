@@ -1,7 +1,7 @@
 # AniLibre
 [https://anilibre.fly.dev](https://anilibre.fly.dev)
 
-AniLibre - демонстрационный проект для поиска аниме. Работает на Nuxt 4, Vuetify 3, Vuetify 3. Развернут на fly.io. Используется API AniLibria.
+AniLibre - демонстрационный проект для поиска аниме. Работает на Nuxt 3, Vuetify 3. Развернут на fly.io. Используется API AniLibria.
 
 
 ## Setup
