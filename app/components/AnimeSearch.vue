@@ -63,7 +63,7 @@ async function searchAnime() {
 
 <template>
   <Transition name="swing" mode="out-in">
-    <v-container>
+    <v-container v-if="searchResults.length > 0">
       <v-row>
           <v-col v-for="anime in searchResults" :key="anime.id" cols="4">
             <v-card :key="anime.id" :to="`/anime/${anime.id}`" @click="showResults = false" height="400" variant="tonal">
