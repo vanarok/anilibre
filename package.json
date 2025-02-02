@@ -1,0 +1,36 @@
+{
+  "name": "anilibre-nuxt",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "prepare": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^1.0.0",
+    "eslint": "^9.19.0",
+    "hls.js": "^1.5.20",
+    "nuxt": "^3.15.4",
+    "plyr": "^3.7.8",
+    "video.js": "^8.21.0",
+    "vue": "latest",
+    "vuetify": "^3.7.3"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.4",
+    "@mdi/font": "^7.4.47",
+    "@mdi/js": "^7.4.47",
+    "@nuxt/fonts": "^0.10.0",
+    "sass-embedded": "^1.80.3",
+    "typescript": "^5.6.3",
+    "vue-tsc": "^2.1.6",
+    "vuetify-nuxt-module": "^0.18.3"
+  }
+}

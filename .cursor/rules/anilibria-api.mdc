@@ -1,0 +1,117 @@
+---
+description: anilibria-api
+globs: 
+---
+
+## API Документация для ИИ
+
+**Формат данных:** JSON
+
+**Описание:** Данные представляют собой информацию об аниме, включая метаданные, ссылки на плеер и торренты.
+
+**Основные поля:**
+
+*   **`id`**: (Integer) Уникальный идентификатор аниме.
+*   **`code`**: (String) Короткий код аниме для использования в URL.
+*   **`names`**: (Object) Названия аниме на разных языках.
+    *   `ru`: (String) Название на русском.
+    *   `en`: (String) Название на английском.
+    *   `alternative`: (String/null) Альтернативное название (может отсутствовать).
+*   **`franchises`**: (Array) Массив франшиз, к которым относится аниме (в данном примере пустой).
+*   **`announce`**: (String) Статус релиза.
+*   **`status`**: (Object) Статус релиза.
+    *   `string`: (String) Текстовое представление статуса.
+    *   `code`: (Integer) Код статуса.
+*   **`posters`**: (Object) Ссылки на постеры разных размеров.
+    *   `small`: (Object) Маленький постер.
+        *   `url`: (String) URL постера.
+        *   `raw_base64_file`: (String/null) Постер в формате base64 (может отсутствовать).
+    *   `medium`: (Object) Средний постер (аналогично `small`).
+    *   `original`: (Object) Оригинальный постер (аналогично `small`).
+*   **`updated`**: (Integer) Timestamp последнего обновления данных.
+*   **`last_change`**: (Integer) Timestamp последнего изменения.
+*   **`type`**: (Object) Тип аниме.
+    *   `full_string`: (String) Полное описание типа и количества серий.
+    *   `code`: (Integer) Код типа.
+    *   `string`: (String) Короткое обозначение типа (TV, Movie и т.д.).
+    *   `episodes`: (Integer) Количество эпизодов.
+    *   `length`: (Integer) Продолжительность эпизода в минутах.
+*   **`genres`**: (Array) Массив жанров аниме.
+*   **`team`**: (Object) Команда, работавшая над аниме.
+    *   `voice`: (Array) Список озвучивающих.
+    *   `translator`: (Array) Список переводчиков.
+    *   `editing`: (Array) Список редакторов (может быть пустой).
+    *   `decor`: (Array) Список оформителей.
+    *   `timing`: (Array) Список таймеров.
+*   **`season`**: (Object) Информация о сезоне.
+    *   `string`: (String) Название сезона.
+    *   `code`: (Integer) Код сезона.
+    *   `year`: (Integer) Год релиза.
+    *   `week_day`: (Integer) День недели (нумерация с понедельника).
+*   **`description`**: (String) Описание аниме.
+*   **`in_favorites`**: (Integer) Количество добавлений в избранное.
+*   **`blocked`**: (Object) Информация о блокировках.
+    *   `copyrights`: (Boolean) Флаг блокировки по авторским правам.
+    *   `geoip`: (Boolean) Флаг блокировки по геолокации.
+    *   `geoip_list`: (Array) Список стран, где заблокировано (может быть пустым).
+*   **`player`**: (Object) Информация о плеере.
+    *   `alternative_player`: (String/null) URL альтернативного плеера (может отсутствовать).
+    *   `host`: (String) Хост плеера.
+    *   `is_rutube`: (Boolean) Флаг наличия на Rutube.
+    *   `episodes`:(Object) Информация о эпизодах.
+      * `first`:(Integer) Первый эпизод.
+      * `last`:(Integer) Последний эпизод.
+      * `string`:(String) Строка описания эпизодов.
+    *   `list`:(Object) Список эпизодов.
+      *  {`номер эпизода`}:(Object) Информация об эпизоде
+         * `episode`:(Integer) Номер эпизода.
+         * `name`:(String/null) Название эпизода.
+         * `uuid`:(String) Уникальный идентификатор эпизода.
+         * `created_timestamp`:(Integer) Время создания в timestamp.
+         * `preview`:(String) Ссылка на превью эпизода.
+         * `skips`:(Object) Информация о пропусках.
+            * `opening`:(Array) Массив с началом и концом пропуска опенинга.
+            * `ending`:(Array) Массив с началом и концом пропуска эндинга.
+         * `hls`:(Object) Ссылки на HLS плееры
+            * `fhd`:(String) Ссылка на FHD качество.
+            * `hd`:(String) Ссылка на HD качество.
+            * `sd`:(String) Ссылка на SD качество.
+    *   `rutube`: (Object) Информация о Rutube (в примере пустой).
+*   **`torrents`**: (Object) Информация о торрентах.
+    *   `episodes`:(Object) Информация о эпизодах.
+      * `first`:(Integer) Первый эпизод.
+      * `last`:(Integer) Последний эпизод.
+      * `string`:(String) Строка описания эпизодов.
+    *   `list`: (Array) Массив с информацией о торрентах.
+         *   `torrent_id`: (Integer) Уникальный ID торрента.
+         *   `episodes`:(Object) Информация о эпизодах.
+            * `first`:(Integer) Первый эпизод.
+            * `last`:(Integer) Последний эпизод.
+            * `string`:(String) Строка описания эпизодов.
+         *   `quality`: (Object) Информация о качестве торрента.
+             *   `string`: (String) Описание качества.
+             *   `type`: (String) Тип качества (WEBRip, BDrip и т.д.).
+             *   `resolution`: (String) Разрешение видео.
+             *   `encoder`: (String) Кодек.
+             *   `lq_audio`: (String/null) Информация о низкокачественном аудио (может отсутствовать).
+         *   `leechers`: (Integer) Количество личеров.
+         *   `seeders`: (Integer) Количество сидеров.
+         *   `downloads`: (Integer) Количество скачиваний.
+         *   `total_size`: (Integer) Общий размер торрента в байтах.
+         *   `size_string`: (String) Размер торрента в удобном виде.
+         *   `url`: (String) URL для скачивания торрент-файла.
+         *   `magnet`: (String) Magnet-ссылка.
+         *   `uploaded_timestamp`: (Integer) Timestamp загрузки торрента.
+         *   `hash`: (String) Хэш торрента.
+         *    `metadata`:(String/null) Метаданные торрента.
+         *   `raw_base64_file`: (String/null) Торрент файл в формате base64 (может отсутствовать).
+
+**Примеры использования:**
+
+ex: https://api.anilibria.tv/v3/title?code=bocchi-the-rock"
+
+*   Получение названия аниме на русском: `data.names.ru`
+*   Получение URL постера среднего размера: `data.posters.medium.url`
+*   Получение списка жанров: `data.genres`
+*   Получение ссылки на HLS плеер в FHD качестве для первого эпизода: `data.player.list[1].hls.fhd`
+*   Получение magnet ссылки на первый торрент: `data.torrents.list[0].magnet`
