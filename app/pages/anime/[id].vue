@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { mdiArrowLeftBold, mdiArrowRightBold } from '@mdi/js'
+import { mdiArrowLeftBold, mdiArrowRightBold, mdiPlayCircle } from '@mdi/js'
 import type Hls from 'hls.js'
 import { nextTick, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
@@ -329,7 +329,7 @@ watch(animeDetails, async () => {
                       <v-icon
                         v-if="currentEpisode === index"
                         color="primary"
-                        icon="mdi-play-circle"
+                        :icon="mdiPlayCircle"
                         size="large"
                       ></v-icon>
                     </v-card-text>
